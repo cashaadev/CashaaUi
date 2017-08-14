@@ -1,0 +1,16 @@
+<div [formGroup]="fastsellsubform">
+ <div class="row">
+ <div class="input-field col s12">
+   <app-cashaa-city-auto-suggestion (notifcitySelectedfromchildtoparent)='listencityselectedfromchildcomponet($event)' ></app-cashaa-city-auto-suggestion>
+   <input id="City" type="hidden" formControlName="StartCityID">
+  <app-validation-message controlname="City" [control]="fastsellsubform.controls.StartCityID"></app-validation-message>
+ </div>
+ <div class="row">
+ <div class="input-field col s12">
+  <app-cashaa-google-suggestion [cityid]='cityId' (notifyGogglesuggestionSelectedtoparents)='listensmpgooglesuggeationselectedfromchildcomponet($event)' ></app-cashaa-google-suggestion>
+  <input id="SMP" type="hidden" formControlName="SMP"> 
+ <app-validation-message controlname="Cash Delivery Place" [control]="fastsellsubform.controls.SMP"></app-validation-message>
+ </div>
+ </div>
+ </div>
+ 

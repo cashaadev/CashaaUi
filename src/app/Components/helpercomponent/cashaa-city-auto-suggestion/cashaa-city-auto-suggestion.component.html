@@ -1,0 +1,3 @@
+<span class="new badge red">Select City</span>
+<input [(ngModel)]="tradecitymodel" loading-text="Fetching your trade city.." max-num-list="10"   placeholder="Select Trade City" ngui-auto-complete [source]="tradecitySource.bind(this)"  [list-formatter]="Formatecitysuggestion" (valueChanged)="citySelected(tradecitymodel)"
+ display-property-name="FullName" list-formatter="FullName" [ngModelOptions]="{standalone: true}" />

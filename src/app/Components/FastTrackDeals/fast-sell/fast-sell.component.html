@@ -1,0 +1,115 @@
+<div class="valign">
+ <div class="row">
+ <div class="col s12">
+ <ul class="tabs tab-demo z-depth-1" style="width: 100%;"> 
+     <li class="tab col s3 "><a  (click)="addfastsellsubform()"  href="#" class="active">Cash in person</a></li> 
+     <!--href="#Bank_transfer"-->
+     <li class="tab col s3"><a  (click)="addfastsellBankform()" href="#" >Bank transfer</a></li> </ul>
+ </div>
+ <!--<div id="test2" class="col s12"><p class="p-v-sm">Test 2</p></div>--> </div>
+ <div id="Bank_transfer" class="row"> <div class="col s12 m12 l6">
+ <div class="card">
+ <div class="card-content">
+ <span class="card-title">Bank transfer</span><br> <div class="row">
+ <form class="col s12" (ngSubmit)="onSubmit(_fastsellcpForm)" [formGroup]="_fastsellcpForm">
+      <div class="row">
+      
+ <div class="input-field col s6"> <input id="btcsell" formControlName="Amount" type="text"> 
+ <app-validation-message controlname="Btc amount" [control]="_fastsellcpForm.controls.Amount"></app-validation-message>
+  <label for="btcsell">Amount of Bitcoins  to sell:(BTC)</label> </div>
+ <div class="input-field col s6"> <input id="Cashamount" formControlName="ReciveAmount" type="text"> <app-validation-message controlname="Received amount" [control]="_fastsellcpForm.controls.ReciveAmount"></app-validation-message> <label for="Cashamount">Cash amount I want to receive:(INR)</label> </div>
+ </div>
+ <!--fastsellsubformarray-->
+ <div formArrayName="fastsellsubformarray">
+<div *ngFor="let address of _fastsellcpForm.controls.fastsellsubformarray.controls; let i=index" class="panel panel-default"> <div class="panel-body" [formGroupName]="i"> 
+    <app-fast-deal-sub-form [group]="_fastsellcpForm.controls.fastsellsubformarray.controls[i]"></app-fast-deal-sub-form> </div>
+ </div>
+ </div>
+
+ <div formArrayName="fastsellbankdeatilsarray">
+<div *ngFor="let address of _fastsellcpForm.controls.fastsellbankdeatilsarray.controls; let i=index" class="panel panel-default"> <div class="panel-body" [formGroupName]="i"> 
+    <app-banks-form [group]="_fastsellcpForm.controls.fastsellbankdeatilsarray.controls[i]"></app-banks-form> </div>
+ </div>
+ </div>
+
+ <div class="row">
+ <div class="input-field col s3"> </div>
+ <div class="input-field col s9"> 
+     
+<a (click)="$event.preventDefault()" class='dropdown-button btn btnduration' data-activates='dropdown2'>{{selectedtimeduration.value}}</a> <!--</button>-->
+
+ <ul id='dropdown2' class='dropdown-content'> <li *ngFor="let item of timedurationlist"><a (click)="doSomething(item.key)" href="#">{{item.value}}</a></li> </ul>
+ </div>
+ </div>
+ <div class="row">
+ <div class="input-field col s12"> <div class="todo-list">
+ <div class="todo-item">
+ <input formControlName="IsAutoPost" type="checkbox" id="IsAutoPost" /> <label for="IsAutoPost">Your deal will be automatically reposted in case no bids are available yet. You can also update your bid value or cancel the deal.</label> <app-validation-message controlname="IsAutoPost" [control]="_fastsellcpForm.controls.IsAutoPost"></app-validation-message> </div>
+ </div>
+ </div>
+ </div>
+ <div class="row">
+ <div class="input-field col s3"> </div>
+ <div class="input-field col s9"> <button [disabled]="_fastsellcpForm.invalid" class="waves-effect waves-light btn teal" type="submit">SUBMIT FOR BIDDING</button> </div>
+ </div>
+ </form>
+ </div>
+ </div>
+ </div>
+ </div>
+ <!---------------------------------Fast sell exchage rate section------------------------------ --> <div class="col s12 m12 l6">
+ <div class="card">
+ <div class="card-content">
+ <div class="collection">
+ <a class="collection-item">Min (BTC Market Value 24 hrs)<span class="badge">1</span></a> <a class="collection-item">Max (BTC Market Value 24 hrs)<span class="new badge">4</span></a> <a class="collection-item">You will give </a> </div>
+ </div>
+ </div>
+ <div class="card">
+ <div class="card-content">
+ <div class="collection">
+ <a class="collection-item">Min (BTC Market Value 24 hrs)<span class="badge">1</span></a> <a class="collection-item">Max (BTC Market Value 24 hrs)<span class="new badge">4</span></a> <a class="collection-item">You will give </a> </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ <!---------------------------------Cash_in_person------------------------------ --> 
+ <!--<div id="Cash_in_person" class="row"> 
+     <div class="col s12 m12 l6">
+ <div class="card">
+ <div class="card-content">
+ <span class="card-title">Cash in person</span><br> <div class="row">
+ <form class="col s12">
+ <div class="row">
+ <div class="input-field col s6"> <input id="btcsell" type="text" class="validate"> <label for="btcsell">Amount of Bitcoins  to sell:(BTC)</label> </div>
+ <div class="input-field col s6"> <input id="Cashamount" type="text" class="validate"> <label for="Cashamount">Cash amount I want to receive:(INR)</label> </div>
+ </div>
+ <div class="row">
+ <div class="input-field col s12"> <input id="Yourlocation:" type="text" class="validate"> <label for="Yourlocation">Your location</label> </div>
+ </div>
+ <div class="row">
+ <div class="input-field col s12"> <input id="Preferredcashdeliverplace" type="text" class="validate"> <label for="Preferredcashdeliverplace">Preferred cash deliver place</label> </div>
+ </div>
+ <div class="row">
+ <div class="input-field col s12"> 
+     <select>
+ <option value="" disabled selected>Set the bidding time</option> <option value="6">6 Hrs</option> <option value="12">12 Hrs</option> <option value="24">24 Hrs</option> <option value="48">48 Hrs</option> 
+ </select>
+  
+ </div>
+ </div>
+ <div class="row">
+ <div class="input-field col s12"> <div class="todo-list">
+ <div class="todo-item">
+
+ <input type="checkbox" id="todo2" /> <label for="todo2">Your deal will be automatically reposted in case no bids are available yet. You can also update your bid value or cancel the deal.</label> </div>
+ </div>
+ </div>
+ </div>
+ </form>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>-->
+ </div>
+ 

@@ -1,0 +1,29 @@
+           <div [formGroup]="bankform">
+ <div class="row">
+ <div class="input-field col s12">
+   <input  type="text" formControlName="banklist">
+  <app-validation-message controlname="banklist" [control]="bankform.controls.banklist"></app-validation-message>
+ </div>
+ <div class="row">
+ <div class="input-field col s12">
+  <input id="bankname"  type="text" formControlName="bankname"> 
+  <label for="bankname">Bank Name</label>
+  <app-validation-message controlname="Bank Name" [control]="bankform.controls.bankname"></app-validation-message>
+ <!--<app-validation-message controlname="Cash Delivery Place" [control]="fastsellsubform.controls.SMP"></app-validation-message>-->
+ </div>
+ </div>
+  <div class="row">
+ <div class="input-field col s12">
+   <input  id="accountnumber"  type="text" formControlName="accountnumber"> 
+  <label for="accountnumber">Account Number</label>
+  <app-validation-message controlname="Account Number" [control]="bankform.controls.accountnumber"></app-validation-message>
+ </div>
+ </div>
+  <div class="row">
+ <div class="input-field col s12">
+  <input id="IFSCCode" type="text" formControlName="IFSCCode"> 
+  <label for="IFSCCode">IFSC Code/ SWIFT Code</label>
+ <app-validation-message controlname="IFSC Code/ SWIFT Code" [control]="bankform.controls.accountnumber"></app-validation-message>
+ </div>
+ </div>
+ </div>

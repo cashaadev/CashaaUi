@@ -1,0 +1,58 @@
+<aside *ngIf="_IsAuthenticated==true" id="slide-out" class="side-nav white fixed">
+                <div class="side-nav-wrapper">
+                    <div class="sidebar-profile">
+                        <div class="sidebar-profile-image">
+                            <img src="assets/images/profile-image.png" class="circle" alt="">
+                        </div>
+                        <div class="sidebar-profile-info">
+                            <a href="javascript:void(0);" class="account-settings-link">
+                                <p>Amjad Raza Khan</p>{{_IsAuthenticated}}
+                                <span>amjadlko@gmail.com</span><!--<i class="material-icons right">arrow_drop_down</i></span>-->
+                            </a>
+                        </div>
+                    </div>
+             
+                <ul class="sidebar-menu collapsible collapsible-accordion" data-collapsible="accordion">
+                    <li class="no-padding active"><a class="waves-effect waves-grey active" [routerLink]="['mydeal']" ><i class="material-icons">settings_input_svideo</i>Track My Deals</a></li>
+              
+              <li class="no-padding">
+                        <a class="collapsible-header waves-effect waves-grey" [routerLink]="['buybitcoin']"  ><i class="material-icons">desktop_windows</i>Buy Bitcoins</a>
+                      
+                    </li>
+
+                    <li class="no-padding">
+                        <a class="collapsible-header waves-effect waves-grey" [routerLink]="['sellbitcoin']" ><i class="material-icons">code</i>Sell Bitcoins</a>
+                       
+                    </li>
+
+                      
+                    <li class="no-padding">
+                        <a class="collapsible-header waves-effect waves-grey" [routerLink]="['bonus']" ><i class="material-icons">star_border</i>Bonus 79.86 USD</a>
+                    
+                    </li>
+               
+                    <li class="no-padding">
+                        <a class="collapsible-header waves-effect waves-grey" [routerLink]="['invitefreind']" ><i class="material-icons">mode_edit</i>Invite Friends</a>
+                      
+                    </li>
+
+      <li class="no-padding">
+                        <a class="collapsible-header waves-effect waves-grey" [routerLink]="['FastSell']" ><i class="material-icons">mode_edit</i>FastSell</a>
+                      
+                    </li>
+
+                    <li class="no-padding">
+                        <a class="collapsible-header waves-effect waves-grey" [routerLink]="['refund']" ><i class="material-icons">grid_on</i>Refunds</a>
+                      
+                    </li>
+
+              
+
+
+                </ul>
+                <div class="footer">
+                    <p class="copyright">btc2bid ©</p>
+                    <a href="#!">Privacy</a> &amp; <a href="#!">Terms</a>
+                </div>
+                </div>
+            </aside>

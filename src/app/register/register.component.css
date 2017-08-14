@@ -1,0 +1,24 @@
+@keyframes MyAnimation {
+  0% {
+    padding-left: 10px;
+  }
+  100% {
+    padding-left: 0px;
+  } 
+}
+
+.my-animation {
+  animation: MyAnimation 1s;
+}
+
+.modelopen{
+
+top: 10%; opacity: 1; transform: scaleX(1); display: block; z-index: 1003;
+
+}
+
+.modelclose{
+
+top: 10%; opacity: 1; transform: scaleX(1); display: block; z-index: 1003;
+
+}

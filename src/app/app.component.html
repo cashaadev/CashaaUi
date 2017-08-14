@@ -1,0 +1,27 @@
+
+
+
+
+
+     <div class="mn-content fixed-sidebar">
+          
+
+          <app-header></app-header>
+        <app-leftsidebar></app-leftsidebar>
+  <!--<app-rightsidebar></app-rightsidebar>-->
+
+   <main class="mn-inner inner-active-sidebar">
+   
+   <span *ngIf="objLoaderStatus">
+     <app-pre-loader></app-pre-loader>
+</span>
+
+
+        <router-outlet> </router-outlet>
+        <router-outlet name="parameters"></router-outlet>
+           </main>
+       <app-footer></app-footer>
+     
+        </div>
+
+         <div class="left-sidebar-hover"></div>

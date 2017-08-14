@@ -1,0 +1,67 @@
+<div class="valign">
+    <div class="row">
+        <div class="col s12 m6 l4 offset-l4 offset-m3">
+            <div class="card white darken-1">
+                <div class="card-content ">
+                    <span class="card-title">{{_sharedservice.showLoader}}Sign Up</span>
+                    <div class="row">
+
+
+                        <form    class="col s12" novalidate (ngSubmit)="onSubmit(registermodel)" [formGroup]="registermodel">
+
+                            <div class="input-field col s12">
+                                <input id="email" type="text" formControlName="Email" class="validate">
+                                <app-validation-message controlname="Email"  [control]="registermodel.controls.Email"></app-validation-message>
+                                <label for="email">Email</label>
+
+                            </div>
+
+                            <div class="input-field col s12">
+                                <input id="name" type="text" formControlName="name" class="validate">
+                                <app-validation-message controlname="Name" [control]="registermodel.controls.name"></app-validation-message>
+                                <label for="name">Name</label>
+
+                            </div>
+
+                            <div class="input-field col s12">
+
+                                <!-- 
+                               http://plnkr.co/edit/CxeAHUgeNfH25Cp7RM43?p=preview-->
+                                
+                                <input id="Citysearchkey" ng2-auto-complete [source]="cityarray" [(ngModel)]="selectedcity" [ngModelOptions]="{standalone: true}"
+                                    (ngModelChange)="select(selectedcity.Key)" value-property-name="Key" [list-formatter]="autocompleListFormatter"
+                                    display-property-name="FullName" class="validate"/>
+                             <input id="City" type="hidden" formControlName="City" class="validate">
+                             <app-validation-message controlname="City" [control]="registermodel.controls.City"></app-validation-message> 
+
+                            </div>
+
+                            <div class="input-field col s12">
+                                <input id="password" type="text" formControlName="Password" #password class="validate">
+                                <app-validation-message controlname="Password" [control]="registermodel.controls.Password"></app-validation-message>
+                                <label for="password">Password</label>
+                            </div>
+                           <div class="input-field col s12">
+                                <input id="ConfirmPassword"  type="text"   formControlName="ConfirmPassword" class="validate">
+                                <app-validation-message controlname="Confirm Password" [confirmcontrol]="registermodel.controls.Password"  [control]="registermodel.controls.ConfirmPassword"></app-validation-message>
+                                <label for="ConfirmPassword">ConfirmPassword</label>
+                            </div>
+                            <div class="input-field col s12">
+
+                            </div>
+
+                            <div class="col s12 right-align m-t-sm">
+                                <button [disabled]="registermodel.invalid" class="waves-effect waves-light btn teal" type="submit">Sign up</button>
+
+                                <!--  [disabled]="registermodel.invalid" <a href="sign-in.html" class="waves-effect waves-grey btn-flat">Sign in</a>
+                                <a href="index.html" class="waves-effect waves-light btn teal">Sign Up</a>-->
+                            </div>
+                        </form>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
